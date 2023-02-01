@@ -1,0 +1,13 @@
+{{>partials/header}}
+
+<link rel="stylesheet" href="/css/idade.css">
+
+    {{#mostrarIdade}}
+        {{nome}} você é maior de idade
+    {{/mostrarIdade}}
+
+    {{#products}}
+        <li>{{.}}</li>
+    {{/products}}
+
+{{>partials/footer}}
