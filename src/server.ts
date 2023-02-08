@@ -3,9 +3,15 @@ import {Server} from 'http'
 import mainRoutes from './routes/index'
 import path from 'path'
 import mustache from 'mustache-express'
+import dotenv from 'dotenv'
+
+dotenv.config()
+/*ultilizando metodo post */
 
 //usar express
 const server = express()
+
+server.use(express.urlencoded({extended:true}))
 
 server.set('view engine','mustache')
 
@@ -21,5 +27,8 @@ server.use((req,res) =>{
     res.status(404).send("Página não encontrada")
 })
 
+
+
+
 //gerando o servidor na porta 3000
-server.listen(3000)
+server.listen(process.env.PORT)

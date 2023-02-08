@@ -1,0 +1,17 @@
+{{>partials/header}}
+
+<form method="POST">
+    nome: <input type="text" name="nome"><br/>
+    idade: <input type="number" name="idade"><br/>
+    telefone: <input type="text" name="telefone"><br/>
+    endereço <input type="text" name="endereco"><br/>
+     <input type="submit" vallue="Enviar">
+</form>
+
+{{#nome}}
+Opa, {{nome}} tudo bem?
+<p>Sua idade {{idade}}</p>
+<p>Seu telefone {{telefone}}</p>
+<p>Seu endereco {{endereco}}</p>
+{{/nome}}
+{{>partials/footer}}

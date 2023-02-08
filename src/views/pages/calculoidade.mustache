@@ -1,0 +1,19 @@
+{{partials/header}}
+
+<h2>qual ano vc nasceu</h2>
+
+<link rel="stylesheet" href="/css/idade.css">
+
+<form method="POST" action="/calculoidade">
+  
+   Nascimento: <input type="number" name="anoNascimento"><br/>
+   <input type="submit" value="Enviar"/>
+
+</form>
+
+
+<P>Sua idade é {{resultado}}</P>
+
+
+
+{{partials/footer}}

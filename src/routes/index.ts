@@ -1,56 +1,15 @@
 import {Router, Request, Response} from 'express'
+import * as homeController from '../controllers/homeController'
+import * as userController from '../controllers/userController'
 
 const router = Router()
 
-router.get('/',(req: Request, res: Response) =>{
-    /*let pessoa = {
-        name: 'mateus',
-        idade: 21
-    }
-    */
-    res.render('pages/home',{
-        nome: "mateus",
-        showWelcome: false
-    })
-})
-
-
-
-//rota dinamica
-router.get('/noticia/:lesma',(req: Request,res: Response) =>{
-    let lesma: string = req.params.lesma
-    res.send(`Noticia: ${lesma}`)
-})
-
-router.get('/voo/:origem-:destino',(req: Request,res: Response) =>{
-    let{origem, destino} = req.params
-
-    res.send(`Procurando voos de ${origem} até ${destino}`)
-})
-
-router.get('/avatar',(req: Request,res: Response) =>{
-    res.render("pages/avatar")
-})
-
-router.get('/idade',(req: Request,res: Response) =>{
-    let idade: number = 18
-    let mostrarIdade: boolean = false
-
-    if (idade >= 13){
-        mostrarIdade = true
-    }
-    res.render("pages/idade",{
-        nome: "jj",
-        mostrarIdade,
-        products:[
-            'mao',
-            'mala',
-            'sabao',
-            'oleo',
-            'jujuba',
-        ]
-        
-    })
-})
+router.get('/', homeController.home)
+router.get('/formulario', userController.formulario)
+router.get('/calculoidade',userController.idade)
+router.post('/calculoidade',userController.idadeResultado)  
+router.get('/avatar',userController.avatar)
+router.get('/nome',userController.nome)
+router.get('/idade',userController.idade1)
 
 export default router
